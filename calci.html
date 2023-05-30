@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>   
+<head>
+    <style>
+        body{margin-top: 12%; margin-top: 15%;background-image: url("math.jpg");background-repeat:no-repeat;background-size: cover;}
+        #button1 {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+            color:transparent;
+            border-radius: 10px;
+            border-color: #5f4dff;
+            text-shadow: 0 0 2px #fff, 0 0 3px #ff4da6, 0 0 4px #ff4da6, 0 0 5px #ff4da6, 0 0 6px #ff4da6, 0 0 7px #ff4da6, 0 0 8px #ff4da6;
+        }  
+        #button2{
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+            color:transparent;
+            border-color: #f357a5;
+            border-radius: 10px;
+            text-shadow: 0 0 2px #fff, 0 0 3px #5f4dff, 0 0 4px #5f4dff, 0 0 5px #5f4dff, 0 0 6px #5f4dff, 0 0 7px #7f72f0, 0 0 8px #5f4dff;
+        }
+        input[type="button"]
+        {
+            background-color:transparent;
+            width:100%
+        }
+        input[type="text"] 
+        {
+            background-color:transparent;
+        }
+    </style>
+    <script>
+        function backspace(calc) {                                            
+            size = calc.display.value.length;
+            calc.display.value = calc.display.value.substring(0, size-1);
+        }
+        function calculate(calc) 
+        {
+            if(calc.display.value.includes("!")) {
+                 
+                size = calc.display.value.length;
+                n = Number(calc.display.value.substring(0, size-1));
+                f = 1;
+                 
+                for(i = 2; i <= n; i++)
+                    f = f*i;
+                calc.display.value = f;
+            }
+            else if(calc.display.value.includes("%")) {
+                 
+                size = calc.display.value.length;
+                n = Number(calc.display.value.substring(0, size-1));
+                calc.display.value = n/100;
+            }
+ 
+            else   
+                calc.display.value = eval(calc.display.value);
+        }
+
+    </script>
+</head>
+ 
+<body>   
+    <form name = "calc">
+         
+    <table id = "calc" align="center" style="background-color:transparent;">
+         
+    <tr>
+        <td colspan=5><input id="button2" name="display"
+            onkeypress="return event.charCode >= 48
+            && event.charCode <= 57" type="text">
+        </td>
+    </tr>
+     
+    <tr>
+        <td><input id="button1" type="button" value="1"
+                OnClick="calc.display.value+='1'">
+        </td>
+         
+        <td><input id="button1" type="button" value="2"
+                OnClick="calc.display.value+='2'">
+        </td>
+         
+        <td><input id="button1" type="button" value="3"
+                OnClick="calc.display.value+='3'">
+        </td>
+         
+        <td><input id="button1" type="button" value="AC"
+                OnClick="calc.display.value=''">
+        </td>
+        <td><input id="button1" type="button" value="&larr;"
+                OnClick="backspace(this.form)">
+        </td>
+        <td><input id="button1" type="button" value="="
+                OnClick="calculate(this.form)">
+        </td>
+    </tr>
+     
+    <tr>
+        <td><input id="button1" type="button" value="4"
+                OnClick="calc.display.value+='4'">
+        </td>
+         
+        <td><input id="button1" type="button" value="5"
+                OnClick="calc.display.value+='5'">
+        </td>
+         
+        <td><input id="button1" type="button" value="6"
+                OnClick="calc.display.value+='6'">
+        </td>
+         
+        <td><input id="button1" type="button" value="-"
+                OnClick="calc.display.value='-'">
+        </td>
+         
+        <td><input id="button1" type="button" value="%"
+                OnClick="calc.display.value+='%'">
+        </td>
+         
+        <td><input id="button1" type="button" value="cos"
+                OnClick="calc.display.value='Math.cos('">
+        </td>
+    </tr>
+     
+    <tr>
+        <td><input id="button1" type="button" value="7"
+                OnClick="calc.display.value+='7'">
+        </td>
+         
+        <td><input id="button1" type="button" value="8"
+                OnClick="calc.display.value+='8'">
+        </td>
+         
+        <td><input id="button1" type="button" value="9"
+                OnClick="calc.display.value+='9'">
+        </td>
+         
+        <td><input id="button1" type="button" value="*"
+                OnClick="calc.display.value+='*'">
+        </td>
+         
+        <td><input id="button1" type="button" value="n!"
+                OnClick="calc.display.value+='!'">
+        </td>
+         
+        <td><input id="button1" type="button" value="sin"
+                OnClick="calc.display.value='Math.sin('">
+        </td>
+    </tr>
+     
+    <tr>
+        <td><input id="button1" type="button" value="."
+                OnClick="calc.display.value+='.'">
+        </td>
+         
+        <td><input id="button1" type="button" value="0"
+                OnClick="calc.display.value+='0'">
+        </td>
+         
+        <td><input id="button1" type="button" value=","
+                OnClick="calc.display.value+=','">
+        </td>
+         
+        <td><input id="button1" type="button" value="+"
+                OnClick="calc.display.value+='+'">
+        </td>
+         
+        <td><input id="button1" type="button" value="/"
+                OnClick="calc.display.value+='/'">
+        </td>
+         
+        <td><input id="button1" type="button" value="tan"
+                OnClick="calc.display.value='Math.tan('">
+        </td>
+    </tr>
+     
+    <tr>
+        <td><input id="button1" type="button" value="E"
+                OnClick="calc.display.value+='Math.E'">
+        </td>
+         
+        <td><input id="button1" type="button" value="pi"
+                OnClick="calc.display.value+='Math.PI'">
+        </td>
+         
+        <td><input id="button1" type="button" value="^"
+                OnClick="calc.display.value+='Math.pow('">
+        </td>
+         
+        <td><input id="button1" type="button" value="("
+                OnClick="calc.display.value+='('">
+        </td>
+         
+        <td><input id="button1" type="button" value=")"
+                OnClick="calc.display.value+=')'">
+        </td>
+         
+        <td><input id="button1" type="button" value="log"
+                OnClick="calc.display.value='Math.log('">
+        </td>
+    </tr>
+     
+    <tr>
+        <td><input id="button1" type="button" value="sqrt"
+                OnClick="calc.display.value+='Math.sqrt('">
+        </td>
+         
+        <td><input id="button1" type="button" value="ln2"
+                OnClick="calc.display.value+='Math.LN2'">
+        </td>
+         
+        <td><input id="button1" type="button" value="ln10"
+                OnClick="calc.display.value+='Math.Log10'">
+        </td>
+         
+        <td><input id="button1" type="button" value="l2e"
+                OnClick="calc.display.value+='Math.LOG2E'">
+        </td>
+         
+        <td><input id="button1" type="button" value="l10e"
+                OnClick="calc.display.value+='Math.log10'">
+        </td>
+         
+        <td><input id="button1" type="button" value="exp"
+                OnClick="calc.display.value='Math.exp('">
+        </td>
+    </tr>
+    </table>
+    </form>
+</body>
+ 
+</html> 
